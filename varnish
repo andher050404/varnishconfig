@@ -18,4 +18,5 @@ DAEMON_OPTS="-a ${VARNISH_LISTEN_PORT} \
              -p ${VARNISH_POOLS_SIZE} \
              -p ${VARNISH_MIN_THREADS} \
              -p ${VARNISH_MAX_THREADS} \
-             -t ${VARNISH_CACHE_TTL}"
+             -t ${VARNISH_CACHE_TTL}
+             -P /root/varnish/varnish.pid"
