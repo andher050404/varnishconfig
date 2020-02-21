@@ -10,7 +10,7 @@ VARNISH_POOLS_SIZE='thread_pools=1'
 VARNISH_MIN_THREADS='thread_pool_min=4'
 VARNISH_MAX_THREADS='thread_pool_max=6'
 VARNISH_THREAD_TIMEOUT=120
-VARNISH_TTL=0
+VARNISH_CACHE_TTL=0
 
 DAEMON_OPTS="-a ${VARNISH_LISTEN_PORT} \
              -f ${VARNISH_VCL_CONF} \
@@ -18,4 +18,4 @@ DAEMON_OPTS="-a ${VARNISH_LISTEN_PORT} \
              -p ${VARNISH_POOLS_SIZE} \
              -p ${VARNISH_MIN_THREADS} \
              -p ${VARNISH_MAX_THREADS} \
-             -t ${VARNISH_TTL}"
+             -t ${VARNISH_CACHE_TTL}"

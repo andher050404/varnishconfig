@@ -1,5 +1,5 @@
 #!/bin/bash
-service varnish start
+service varnish start -P /varnish/varnish.pid
 
 varnishncsa -a -c -w ${VARNISH_CLIENT_LOG} -D -P ${VARNISH_CLIENT_LOG_PID} -f ${VARNISH_LOGGING_FORMAT}
 
