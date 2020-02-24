@@ -2,3 +2,4 @@ Dockerfile
 *.bak
 .ssh
 .gitconfig
+initVarnish.sh

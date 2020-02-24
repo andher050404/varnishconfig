@@ -1,13 +1,11 @@
 #!/bin/bash
-service varnish start -P /varnish/varnish.pid
 
-varnishncsa -a -c -w ${VARNISH_CLIENT_LOG} -D -P ${VARNISH_CLIENT_LOG_PID} -f ${VARNISH_LOGGING_FORMAT}
+sh update.sh
 
-varnishncsa -a -b -w ${VARNISH_BACKEND_LOG} -D -P ${VARNISH_BACKEND_LOG_PID} -f ${VARNISH_LOGGING_FORMAT}
+#service varnish start -P /varnish/varnish.pid
+
+#varnishncsa -a -c -w ${VARNISH_CLIENT_LOG} -D -P ${VARNISH_CLIENT_LOG_PID} -f ${VARNISH_LOGGING_FORMAT}
+
+#varnishncsa -a -b -w ${VARNISH_BACKEND_LOG} -D -P ${VARNISH_BACKEND_LOG_PID} -f ${VARNISH_LOGGING_FORMAT}
 
 /usr/sbin/cron -f -l 8
-
-# while :
-# do
-# 	sleep 1
-# done

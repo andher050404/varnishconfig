@@ -15,11 +15,11 @@ cd
 
 cp varnishconfig/default.vcl ${VARNISH_DEFAULT}
 cp varnishconfig/secret ${VARNISH_SECRET}
-cp varnishconfig/initVarnish.sh ${VARNISH_STARTUP}
+#cp varnishconfig/initVarnish.sh ${VARNISH_STARTUP}
 cp varnishconfig/stopVarnish.sh ${VARNISH_STOP}
 cp varnishconfig/rotateLogs.sh ${VARNISH_LOG_ROTATE}
-cp varnishconfig/update.sh varnish/update.sh
 cp varnishconfig/varnishFormatString ${VARNISH_LOGGING_FORMAT}
+cp varnishconfig/update.sh varnish/update.sh
 cp varnishconfig/varnish /etc/default/varnish
 cp varnishconfig/varnishinit.d /etc/init.d/varnish
 
