@@ -1,31 +1,30 @@
 #!/bin/bash
 
-cd
+#cd
 
 kill -9 $(cat ${VARNISH_CLIENT_LOG_PID}) && rm -f ${VARNISH_CLIENT_LOG_PID}
 kill -9 $(cat ${VARNISH_BACKEND_LOG_PID}) && rm -f ${VARNISH_BACKEND_LOG_PID}
 
-kill -9 $(cat varnish/varnish.pid)
+kill -9 $(cat ${VARNISH_PID})
 
-cd /root/varnishconfig
+cd ${VARNISH_CONFIG}
 
 git pull
 
-cd
+#cd
 
-cp varnishconfig/default.vcl ${VARNISH_DEFAULT}
-cp varnishconfig/secret ${VARNISH_SECRET}
-cp varnishconfig/rotateLogs.sh ${VARNISH_LOG_ROTATE}
-cp varnishconfig/varnishFormatString ${VARNISH_LOGGING_FORMAT}
-cp varnishconfig/update.sh varnish/update.sh
+cp ${VARNISH_CONFIG}/default.vcl ${VARNISH_DEFAULT}
+cp ${VARNISH_CONFIG}/secret ${VARNISH_SECRET}
 
 crontab -r
-crontab varnishconfig/crontab
+crontab ${VARNISH_CONFIG}/crontab
 
-cd /root/varnish
-varnishd -a 0.0.0.0:${VARNISH_LISTEN_PORT} -f ${VARNISH_DEFAULT} -S ${VARNISH_SECRET} -p ${VARNISH_POOLS_SIZE} -p ${VARNISH_MIN_THREADS} -p ${VARNISH_MAX_THREADS} -t ${VARNISH_CACHE_TTL} -P varnish.pid
-cd
-echo $(date -u) "Service startet" >> varnish/varnish.log
+#cd ${VARNISH_HOME}
+varnishd -a 0.0.0.0:${VARNISH_LISTEN_PORT} -f ${VARNISH_DEFAULT} -S ${VARNISH_SECRET} -p ${VARNISH_POOLS_SIZE} -p ${VARNISH_MIN_THREADS} -p ${VARNISH_MAX_THREADS} -t ${VARNISH_CACHE_TTL} -P ${VARNISH_PID}
+#cd
+
+cp ${VARNISH_CLIENT_LOG} ${VARNISH_CLIENT_LOG_ROTATE}$(date +_%Y%m%d) && > ${VARNISH_CLIENT_LOG}
+cp ${VARNISH_BACKEND_LOG} ${VARNISH_BACKEND_LOG_ROTATE}$(date +_%Y%m%d) && > ${VARNISH_BACKEND_LOG}
 
 varnishncsa -a -c -w ${VARNISH_CLIENT_LOG} -D -P ${VARNISH_CLIENT_LOG_PID} -f ${VARNISH_LOGGING_FORMAT}
 
