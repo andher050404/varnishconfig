@@ -1,1 +1,1 @@
-* * * * * . $HOME/.profile; $VARNISH_UPDATE
+* * * * * sh $VARNISH_UPDATE
