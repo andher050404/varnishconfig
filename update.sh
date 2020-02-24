@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#cd
-
 kill -9 $(cat ${VARNISH_CLIENT_LOG_PID}) && rm -f ${VARNISH_CLIENT_LOG_PID}
 kill -9 $(cat ${VARNISH_BACKEND_LOG_PID}) && rm -f ${VARNISH_BACKEND_LOG_PID}
 
@@ -11,17 +9,13 @@ cd ${VARNISH_CONFIG}
 
 git pull
 
-#cd
-
 cp ${VARNISH_CONFIG}/default.vcl ${VARNISH_DEFAULT}
 cp ${VARNISH_CONFIG}/secret ${VARNISH_SECRET}
 
 crontab -r
 crontab ${VARNISH_CONFIG}/crontab
 
-#cd ${VARNISH_HOME}
 varnishd -a 0.0.0.0:${VARNISH_LISTEN_PORT} -f ${VARNISH_DEFAULT} -S ${VARNISH_SECRET} -p ${VARNISH_POOLS_SIZE} -p ${VARNISH_MIN_THREADS} -p ${VARNISH_MAX_THREADS} -t ${VARNISH_CACHE_TTL} -P ${VARNISH_PID}
-#cd
 
 cp ${VARNISH_CLIENT_LOG} ${VARNISH_CLIENT_LOG_ROTATE}$(date +_%Y%m%d) && > ${VARNISH_CLIENT_LOG}
 cp ${VARNISH_BACKEND_LOG} ${VARNISH_BACKEND_LOG_ROTATE}$(date +_%Y%m%d) && > ${VARNISH_BACKEND_LOG}
