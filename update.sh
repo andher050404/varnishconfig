@@ -18,7 +18,6 @@ cp varnishconfig/secret ${VARNISH_SECRET}
 cp varnishconfig/rotateLogs.sh ${VARNISH_LOG_ROTATE}
 cp varnishconfig/varnishFormatString ${VARNISH_LOGGING_FORMAT}
 cp varnishconfig/update.sh varnish/update.sh
-cp varnishconfig/varnish /etc/default/varnish
 
 crontab -r
 crontab varnishconfig/crontab
