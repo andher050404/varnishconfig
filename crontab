@@ -1,1 +1,1 @@
-* * * * * sh /root/varnishconfig/update.sh
+* * * * * echo "Hello world" >> /root/varnish/varnish.log.log 2>&1
