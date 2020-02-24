@@ -1,1 +1,1 @@
-* * * * * sh $VARNISH_UPDATE
+* * * * * /bin/bash $VARNISH_UPDATE
