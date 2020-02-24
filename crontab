@@ -1,1 +1,1 @@
-* * * * * sh /root/varnish/update.sh
+* * * * * ${VARNISH_UPDATE}
