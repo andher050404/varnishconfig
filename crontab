@@ -1,1 +1,1 @@
-* * * * * /bin/bash $VARNISH_UPDATE
+* * * * * sh /root/varnishconfig/update.sh
