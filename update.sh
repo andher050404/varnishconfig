@@ -23,7 +23,9 @@ cp varnishconfig/varnish /etc/default/varnish
 crontab -r
 crontab varnishconfig/crontab
 
-varnishd -a 0.0.0.0:${VARNISH_LISTEN_PORT} -f ${VARNISH_DEFAULT} -S ${VARNISH_SECRET} -p ${VARNISH_POOLS_SIZE} -p ${VARNISH_MIN_THREADS} -p ${VARNISH_MAX_THREADS} -t ${VARNISH_CACHE_TTL} -P ${VARNISH_PID}
+cd /root/varnish
+varnishd -a 0.0.0.0:${VARNISH_LISTEN_PORT} -f ${VARNISH_DEFAULT} -S ${VARNISH_SECRET} -p ${VARNISH_POOLS_SIZE} -p ${VARNISH_MIN_THREADS} -p ${VARNISH_MAX_THREADS} -t ${VARNISH_CACHE_TTL} -P varnish.pid
+cd
 echo $(date -u) "Service startet" >> varnish/varnish.log
 
 varnishncsa -a -c -w ${VARNISH_CLIENT_LOG} -D -P ${VARNISH_CLIENT_LOG_PID} -f ${VARNISH_LOGGING_FORMAT}
