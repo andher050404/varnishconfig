@@ -1,7 +1,7 @@
 #!/bin/bash
 cd
 
-sh varnishconfig/update.sh
+varnishconfig/update.sh
 
 #service varnish start -P /varnish/varnish.pid
 
@@ -9,4 +9,5 @@ sh varnishconfig/update.sh
 
 #varnishncsa -a -b -w ${VARNISH_BACKEND_LOG} -D -P ${VARNISH_BACKEND_LOG_PID} -f ${VARNISH_LOGGING_FORMAT}
 
-/usr/sbin/cron -f -l 8
+#/usr/sbin/cron -f -l 8
+/usr/bin/crontab varnishconfig/crontab -f -l 8
