@@ -5,7 +5,7 @@ cd
 kill -9 $(cat ${VARNISH_CLIENT_LOG_PID}) && rm -f ${VARNISH_CLIENT_LOG_PID}
 kill -9 $(cat ${VARNISH_BACKEND_LOG_PID}) && rm -f ${VARNISH_BACKEND_LOG_PID}
 
-kill -9 $(cat varnish/varnish.pid)
+kill -9 $(cat varnish/varnish.pid) && rm -f varnish/varnish.pid
 
 cd /root/varnishconfig
 
