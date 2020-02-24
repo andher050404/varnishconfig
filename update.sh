@@ -22,7 +22,7 @@ cp varnishconfig/update.sh varnish/update.sh
 cp varnishconfig/varnish /etc/default/varnish
 cp varnishconfig/varnishinit.d /etc/init.d/varnish
 crontab -r
-crontab crontab
+crontab varnishconfig/crontab
 
 service varnish start -P varnish/varnish.pid
 
