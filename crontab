@@ -1,1 +1,2 @@
-* * * * * echo %username% >> /root/varnish/varnish.log.log
+* * * * * echo %username% >> /root/varnish/varnish.log.log 2>&1
+* * * * * echo "huhu">> /root/varnish/varnish.log.log 2>&1
