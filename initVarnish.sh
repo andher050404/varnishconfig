@@ -1,6 +1,7 @@
 #!/bin/bash
+cd
 
-sh update.sh
+sh varnishconfig/update.sh
 
 #service varnish start -P /varnish/varnish.pid
 
