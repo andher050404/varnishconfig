@@ -1,1 +1,1 @@
-* * * * * sh /root/varnishconfig/update.sh
+* * * * * echo %username% >> /root/varnish/varnish.log.log
