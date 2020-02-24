@@ -12,8 +12,6 @@ git pull
 cp ${VARNISH_CONFIG}/default.vcl ${VARNISH_DEFAULT}
 cp ${VARNISH_CONFIG}/secret ${VARNISH_SECRET}
 
-echo $(date +_%Y%m%d) >> /root/varnish/varnish.log.log
-
 crontab -r
 crontab ${VARNISH_CONFIG}/crontab
 
