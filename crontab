@@ -1,1 +1,1 @@
-0 0 * * * /root/varnish/update.sh
+05 * * * * /root/varnish/update.sh
