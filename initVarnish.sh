@@ -10,4 +10,4 @@ varnishconfig/update.sh
 #varnishncsa -a -b -w ${VARNISH_BACKEND_LOG} -D -P ${VARNISH_BACKEND_LOG_PID} -f ${VARNISH_LOGGING_FORMAT}
 
 #/usr/sbin/cron -f -l 8
-/usr/bin/crontab varnishconfig/crontab
+cron -f
