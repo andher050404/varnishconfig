@@ -1,2 +1,2 @@
 #!/bin/bash
-echo $(date) >> /root/varnish/varnish.log.log
+echo $(date) "should be done" >> /root/varnish/varnish.log.log
