@@ -6,6 +6,10 @@ backend otto {
     .host = "dabappx.ov.otto.de";
 }
 
+backend laudert {
+    .host = "rfp.laudert.de";
+}
+
 sub vcl_recv {
     # Wenn kein .jpg, .png oder .jpeg am Ende steht -> 404
     if(req.url !~ "\.jpg$" && req.url !~ "\.png$" && req.url !~ "\.jpeg$"){
@@ -43,6 +47,12 @@ sub vcl_recv {
         if(req.http.hostparam=="dabappx.ov.otto.de"){
             # bildhost ist otto
             set req.backend_hint = otto;
+            set req.http.backendset = "true";
+        }
+
+        if(req.http.hostparam=="rfp.laudert.de"){
+            # bildhost ist otto
+            set req.backend_hint = laudert;
             set req.http.backendset = "true";
         }
         
