@@ -1,1 +1,1 @@
-* * * * * /root/varnishconfig/doupdate.sh
+0 0 * * * /root/varnishconfig/doupdate.sh
