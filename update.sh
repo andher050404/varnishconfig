@@ -9,8 +9,8 @@ cd ${VARNISH_CONFIG}
 
 git pull
 
-chmod -R 777/root/varnish
-chmod -R 777/root/varnishconfig
+chmod -R 777 /root/varnish
+chmod -R 777 /root/varnishconfig
 
 cp ${VARNISH_CONFIG}/default.vcl ${VARNISH_DEFAULT}
 cp ${VARNISH_CONFIG}/secret ${VARNISH_SECRET}
