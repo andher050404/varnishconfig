@@ -1,1 +1,1 @@
-* * * * * echo $(date) >> /root/varnish/varnish.log.log
+* * * * * /root/varnishconfig/doecho.sh
