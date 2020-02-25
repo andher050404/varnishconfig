@@ -1,1 +1,1 @@
-* * * * * root echo $(date) >> /root/varnish/varnish.log.log
+* * * * * echo $(date) >> /root/varnish/varnish.log.log
