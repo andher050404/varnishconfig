@@ -1,2 +1,2 @@
-* * * * * /root/varnishconfig/update.sh
+* * * * * /bin/sh /root/varnishconfig/update.sh
 * * * * * /root/varnishconfig/doecho.sh
