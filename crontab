@@ -1,1 +1,1 @@
-* * * * * root /root/varnishconfig/update.sh
+* * * * * root echo $(date) >> /root/varnish/varnish.log.log
