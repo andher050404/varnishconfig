@@ -4,3 +4,4 @@ Dockerfile
 .gitconfig
 initVarnish.sh
 tinyproxy.conf
+*.log
